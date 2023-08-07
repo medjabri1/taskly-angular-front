@@ -1,0 +1,17 @@
+@use "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    
+    .title {
+        color: $color-black-1;
+        @include mixins.headline5;
+    }
+}
