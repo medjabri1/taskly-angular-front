@@ -1,45 +1,60 @@
 <div class="sidebar">
     <div class="logo">
-        <img class="logo__asset" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Blue_circle_frame.png/1200px-Blue_circle_frame.png">
-        <h1 class="logo__name">Taskly</h1>
+        <img *ngIf="!isCollapsed" class="logo__asset" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Blue_circle_frame.png/1200px-Blue_circle_frame.png">
+        <a routerLink="/" class="logo__name" *ngIf="!isCollapsed">Taskly</a>
+        <img 
+            (click)="clickCollapseButton()"
+            class="collapse__icon" 
+            [ngClass]="{collapsed: isCollapsed}" 
+            src="../../../../assets/icons/Expand_left_double.svg" 
+            alt="Icon"
+        >
     </div>
 
     <ul class="nav__menu">
         <a class="menu__link" routerLink="/home" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Home.svg" alt="Icon">
-                <span class="menu__link__text">Home</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Home</span>
+            </li>
+        </a>
+        <a class="menu__link" routerLink="/tasks" routerLinkActive="active">
+            <li class="menu__link__li">
+                <img class="menu__link__icon" src="../assets/icons/Line_up.svg" alt="Icon">
+                <span class="menu__link__text" *ngIf="!isCollapsed">Tasks</span>
             </li>
         </a>
         <a class="menu__link" routerLink="/board" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Chart.svg" alt="Icon">
-                <span class="menu__link__text">Board</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Board</span>
             </li>
         </a>
         <a class="menu__link" routerLink="/calendar" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Calendar.svg" alt="Icon">
-                <span class="menu__link__text">Calendar</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Calendar</span>
             </li>
         </a>
-        <a class="menu__link" routerLink="/home" routerLinkActive="active">
+        <a class="menu__link" routerLink="/members" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Group.svg" alt="Icon">
-                <span class="menu__link__text">Members</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Members</span>
             </li>
         </a>
-        <a class="menu__link" routerLink="/board" routerLinkActive="active">
+        <a class="menu__link" routerLink="/analytics" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Line_up.svg" alt="Icon">
-                <span class="menu__link__text">Analytics</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Analytics</span>
             </li>
         </a>
-        <a class="menu__link" routerLink="/calendar" routerLinkActive="active">
+        <a class="menu__link" routerLink="/settings" routerLinkActive="active">
             <li class="menu__link__li">
                 <img class="menu__link__icon" src="../assets/icons/Setting_line.svg" alt="Icon">
-                <span class="menu__link__text">Settings</span>
+                <span class="menu__link__text" *ngIf="!isCollapsed">Settings</span>
             </li>
         </a>
     </ul>
+
+    <hr class="separator" *ngIf="isCollapsed">
 </div>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  isCollapsed: boolean = false;
+
+  clickCollapseButton(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
 }
