@@ -1,1 +1,25 @@
-<p>board works!</p>
+<div class="board__page">
+    <div class="task__status">
+
+        <app-task-status 
+            [title]="'To do'"
+            [data]="[1, 2, 3]"
+        ></app-task-status>
+
+        <app-task-status 
+            [title]="'On Progress'"
+            [data]="[1, 2]"
+        ></app-task-status>
+
+        <app-task-status 
+            [title]="'Done'"
+            [data]="[1]"
+        ></app-task-status>
+
+        <app-task-status 
+            [title]="'QA'"
+            [data]="[1, 2, 3]"
+        ></app-task-status>
+
+    </div>
+</div>

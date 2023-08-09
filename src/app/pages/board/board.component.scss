@@ -1,0 +1,20 @@
+@use "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+.board__page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    overflow: hidden;
+
+    .task__status {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 30px;
+    }
+}

@@ -5,10 +5,12 @@
 .app {
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: start;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: stretch;
+    // justify-content: start;
+    display: grid;
+    grid-template-columns: auto 1fr;
     
     .main {
         width: 100%;
@@ -19,11 +21,8 @@
 
         .content {
             flex: 1;
-            background-color: $color-light-gray;
+            background-color: $color-light;
             overflow-y: scroll;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     }
 }

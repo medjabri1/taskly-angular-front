@@ -1,0 +1,14 @@
+<div class="status__item">
+    <div class="header">
+        <span class="indicator"></span>
+        <h1 class="title">{{ title }}</h1>
+        <div class="quantity"><span>{{ data.length }}</span></div>
+    </div>
+    <div class="content">
+        <div class="tasks__list">
+
+            <app-task-item *ngFor="let item of data"></app-task-item>
+
+        </div>
+    </div>
+</div>

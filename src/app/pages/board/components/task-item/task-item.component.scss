@@ -1,0 +1,117 @@
+@use "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/variables";
+
+.task__item {
+    background-color: $color-white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 2px #00000011, 0px 2px 8px #00000011;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .priority {
+            font-size: .8rem;
+            background-color: #99000055;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        .options {
+            height: 4px;
+            width: 4px;
+            margin-right: 10px;
+            background-color: $color-black-1;
+            border-radius: 50%;
+            opacity: .8;
+            position: relative;
+            transition: all 200ms ease-in-out;
+            cursor: pointer;
+            
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                height: 4px;
+                width: 4px;
+                background-color: $color-black-1;
+                border-radius: 50%;
+                left: -6px;
+            }
+
+            &::after {
+                left: unset;
+                right: -6px;
+            }
+        }
+    }
+
+    .content {
+        margin: 10px 0px;
+        margin-bottom: 20px;
+
+        .title {
+            font-size: 1.2rem;
+        }
+
+        .body {
+            font-size: .9rem;
+            color: $color-gray-1;
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        .contributers {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-direction: row;
+
+            .contributer {
+                height: 20px;
+                width: 20px;
+                background-color: $color-gray-1;
+                border-radius: 50%;
+                margin-right: -5px;
+                border: 2px solid $color-white;
+            }
+        }
+
+        .details__item {
+            margin: 0px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .5;
+            user-select: none;
+            cursor: pointer;
+            transition: all 200ms ease-in-out;
+
+            &:hover {
+                opacity: .8;
+            }
+
+            .icon {
+                height: 1.1rem;
+                width: 1.1rem;
+                margin-right: 3px;
+            }
+
+            .name {
+                font-weight: 500;
+                font-size: .8rem;
+
+                .quantity {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+}

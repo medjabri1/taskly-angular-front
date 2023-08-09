@@ -12,6 +12,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { MembersComponent } from './pages/members/members.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { TaskStatusComponent } from './pages/board/components/task-status/task-status.component';
+import { TaskItemComponent } from './pages/board/components/task-item/task-item.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     AnalyticsComponent,
     MembersComponent,
     TasksComponent,
+    TaskStatusComponent,
+    TaskItemComponent,
   ],
   imports: [
     BrowserModule,

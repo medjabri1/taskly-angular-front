@@ -13,8 +13,9 @@
     
     .title {
         color: $color-black-1;
-        @include mixins.headline5;
+        @include mixins.headline4;
         flex: 3;
+        color: $color-black-1;
     }
 
     .header__menu {
