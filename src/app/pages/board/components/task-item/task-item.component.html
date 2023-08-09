@@ -1,4 +1,4 @@
-<div class="task__item">
+<div class="task__item" draggable="true">
 
     <div class="header">
         <span class="priority">Low</span>
@@ -6,8 +6,8 @@
     </div>
 
     <div class="content">
-        <h1 class="title">Brainstorming</h1>
-        <div class="body">Brainstorming brings team members'diverse experience into play.</div>
+        <h1 class="title">{{ task.title }}</h1>
+        <div class="body">{{ task.description }}</div>
     </div>
 
     <div class="footer">
@@ -20,12 +20,12 @@
 
         <div class="details__item">
             <img class="icon" src="../../../assets/icons/Chat_alt_3_light.svg">
-            <span class="name"><span class="quantity">2</span>comments</span>
+            <span class="name"><span class="quantity">2</span><span class="label">comments</span></span>
         </div>
 
         <div class="details__item">
             <img class="icon" src="../../../assets/icons/Folder_file_alt_light.svg">
-            <span class="name"><span class="quantity">2</span>Files</span>
+            <span class="name"><span class="quantity">2</span><span class="label">Files</span></span>
         </div>
 
     </div>

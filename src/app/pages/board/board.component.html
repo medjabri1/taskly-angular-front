@@ -3,22 +3,22 @@
 
         <app-task-status 
             [title]="'To do'"
-            [data]="[1, 2, 3]"
+            [data]="getTodoItems()"
         ></app-task-status>
 
         <app-task-status 
             [title]="'On Progress'"
-            [data]="[1, 2]"
+            [data]="getProgressItems()"
         ></app-task-status>
 
         <app-task-status 
             [title]="'Done'"
-            [data]="[1]"
+            [data]="getDoneItems()"
         ></app-task-status>
 
         <app-task-status 
             [title]="'QA'"
-            [data]="[1, 2, 3]"
+            [data]="getQAItems()"
         ></app-task-status>
 
     </div>

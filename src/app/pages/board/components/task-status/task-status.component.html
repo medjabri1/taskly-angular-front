@@ -7,7 +7,7 @@
     <div class="content">
         <div class="tasks__list">
 
-            <app-task-item *ngFor="let item of data"></app-task-item>
+            <app-task-item *ngFor="let item of data" [task]="item"></app-task-item>
 
         </div>
     </div>
