@@ -86,22 +86,71 @@ export class BoardComponent {
 		return this.data.filter(item => item.status === 'QA');
 	}
 
-	dom_items: any = [];
+
+	// HANDLE DRAG
+
+	dom_task_items: any = [];
+	dom_status_items: any = [];
+
+	draggedItem: any = null;
 
 	ngAfterViewInit(): void {
-		this.dom_items = document.querySelectorAll('.task__item');
+		this.dom_task_items = document.querySelectorAll('.task__item');
+		this.dom_status_items = document.querySelectorAll('.status__item');
 
-		this.dom_items.forEach((item: any) => {
-			item.addEventListener('dragstart', this.handleDragStart);
-			item.addEventListener('dragend', this.handleDragEnd);
+		this.dom_task_items.forEach((item: any) => {
+			item.addEventListener('dragstart', (e: any) => this.handleDragStart(e));
+			item.addEventListener('dragend', (e: any) => this.handleDragEnd(e));
 		});
+
+		this.dom_status_items.forEach((item: any) => {
+			item.addEventListener('dragover', (e: any) => this.handleDragOver(e));
+		});
+
+		this.dom_status_items.forEach((item: any) => {
+			item.addEventListener('dragleave', (e: any) => this.handleDragLeave(e));
+		});
+		
 	}
 
 	handleDragStart(e: any): void {
 		console.log('dragstart');
+		this.draggedItem = e.target;
 	}
 
 	handleDragEnd(e: any): void {
 		console.log('dragEnd');
+		this.draggedItem = null;
+	}
+
+	handleDragOver(e: any): void {
+
+		e.preventDefault();
+		if(e.target.classList.contains('status__item')
+			&& this.draggedItem != null
+			&& this.draggedItem.classList.contains('task__item') 
+		) {
+			let status_title: string = e.target.querySelector('.header .title').textContent.toUpperCase();
+
+			let task_title: string = this.draggedItem.querySelector('.content .title').textContent;
+
+			let item_data = this.data.filter(item => item.title === task_title)[0];
+
+			if(item_data.status !== status_title) {
+				console.log(status_title);
+				e.target.classList.add('over');	
+			}
+
+		}
+		// console.log('dragOver');
+	}
+
+	handleDragLeave(e: any): void {
+		e.target.classList.remove('over');
+		// e.preventDefault();
+		// if(e.target.classList.contains('status__item')) {
+		// 	this.
+		// }
+		// console.log('dragOver');
 	}
 }
