@@ -6,6 +6,11 @@
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0px 2px 2px #00000011, 0px 2px 8px #00000011;
+    cursor: grab;
+
+    .task__id {
+        display: none;
+    }
 
     .header {
         display: flex;
