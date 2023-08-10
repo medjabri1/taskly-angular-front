@@ -8,6 +8,6 @@ import { Task } from 'src/app/models/Task';
 })
 export class TaskItemComponent {
 
-  @Input() task: Task = { title: '', description: '', status: '' };
+  @Input() task: Task = { id: 0, title: '', description: '', status: '' };
 
 }
