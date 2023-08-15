@@ -1,1 +1,30 @@
-<p>calendar works!</p>
+<div class="calendar__page">
+    <div class="calendar__container">
+        <table class="table" >
+            <tr class="table__row">
+                <th class="table__head__element"></th>
+                <th 
+                    class="table__head__element"
+                    *ngFor="let item of dates"
+                    [ngClass]="{ current: item === day }"
+                >
+                    {{ item }}
+                </th>
+            </tr>
+            <tr class="table__row" *ngFor="let team of teams">
+                <td class="table__body__element title">{{ team }}</td>
+                <td
+                    class="table__body__element"
+                    *ngFor="let item of dates"
+                    [ngClass]="{ current: item === day }"
+                >
+                </td>
+            </tr>
+        </table>
+
+        <div class="calendar__control">
+            <span (click)="handleShiftDate(-1)">Prev</span>
+            <span (click)="handleShiftDate(1)">Next</span>
+        </div>
+    </div>
+</div>
