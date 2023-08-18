@@ -1,0 +1,116 @@
+@use "../../../assets/styles/mixins";
+@import "../../../assets/styles/variables";
+
+.calendar__page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+
+    .calendar__container {
+        height: fit-content;
+        width: 100%;
+        padding: 20px;
+
+        .calendar__control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                margin: 10px;
+                padding: 8px 20px;
+                background-color: #00000033;
+                text-transform: uppercase;
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+        
+        .table {
+            height: 100%;
+            width: 100%;
+            border-collapse: collapse;
+
+
+            .table__row {
+                width: 100%;
+                
+                .table__head__element, .table__body__element {
+                    border: 1px solid #00000033;
+                    padding: 15px 0px;
+                    width: calc(100% / 8);
+                    max-width: calc(100% / 8);
+                    overflow: hidden;   
+
+                    white-space: nowrap;   
+                    text-overflow: ellipsis;
+
+                    &.title {
+                        justify-content: start;
+                        color: $color-gray-1;
+                        font-weight: 500;
+                        letter-spacing: .01rem;
+                        padding-right: 15px;
+                        padding-left: 5px;
+                        column-span: 2;
+                    }
+
+                    &.current.table__body__element {
+                        background-color: #00000011;
+                    }
+
+                    &.current.table__head__element {
+                        color: $color-blue-1;
+                    }
+                }
+
+                .table__head__element {
+                    border-top: none;
+                    color: $color-black-1;
+
+                    &:nth-of-type(1) {
+                        border-left: none;
+                    }
+
+                    &:nth-of-type(n-1) {
+                        border-right: none;
+                    }
+
+                    .current__date {
+                        color: $color-blue-1;
+                    }
+
+                    .date {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        .day__nbr {
+                            font-size: 1rem;
+                        }
+
+                        .day__name {
+                            font-size: .8rem;
+                            opacity: .6;
+                        }
+                    }
+                }
+                
+                .table__body__element {
+
+                    &:nth-of-type(1) {
+                        border-left: none;
+                    }
+
+                    &:nth-of-type(n-1) {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}
