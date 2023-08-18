@@ -2,21 +2,28 @@
     <div class="calendar__container">
         <table class="table" >
             <tr class="table__row">
-                <th class="table__head__element"></th>
+                <th class="table__head__element">
+                    <span class="current__date">
+                        {{ months[dates[dates.length - 1].getMonth()].substring(0, 3) }} {{ dates[dates.length - 1].getFullYear() }}
+                    </span>
+                </th>
                 <th 
                     class="table__head__element"
-                    *ngFor="let item of dates"
-                    [ngClass]="{ current: item === day }"
+                    *ngFor="let date of dates"
+                    [ngClass]="{ current: isCurrentDay(date) }"
                 >
-                    {{ item }}
+                    <div class="date">
+                        <span class="day__name">{{ daysOfWeek[date.getDay()].substring(0, 3) }}</span>
+                        <span class="day__nbr">{{ date.getDate() }}</span>
+                    </div>
                 </th>
             </tr>
             <tr class="table__row" *ngFor="let team of teams">
                 <td class="table__body__element title">{{ team }}</td>
                 <td
                     class="table__body__element"
-                    *ngFor="let item of dates"
-                    [ngClass]="{ current: item === day }"
+                    *ngFor="let date of dates"
+                    [ngClass]="{ current: isCurrentDay(date) }"
                 >
                 </td>
             </tr>

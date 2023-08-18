@@ -19,11 +19,22 @@ export class CalendarComponent {
     'Design team',
   ]
 
-  dates: Array<Number> = [];
+  months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ]
+
+  daysOfWeek = [
+    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+  ];
+
+
+  dates: Array<Date> = [];
 
 
   day = new Date().getDate();
   month = new Date().getMonth();
+  dayNbr = new Date().getDay();
 
   shift = 0;
 
@@ -33,16 +44,40 @@ export class CalendarComponent {
     let i = 0;
   }
   
-  fillDates() {  
+  fillDates() {
     this.dates = [];
     for(let i = this.day - 2 + this.shift; i <= this.day + 4 + this.shift; i++) {
-      this.dates.push(i);
+      this.dates.push(this.getDateAfterDays(i - this.day));
     }
   }
 
   handleShiftDate(step: number) {
     this.shift += step;
     this.fillDates();
+  }
+
+  getDateAfterDays(days: number): Date {
+    const today: any = new Date();
+    const millisecondsPerDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
+    const daysAfterMilliseconds = days * millisecondsPerDay;
+    
+    const targetDate = new Date(today.getTime() + daysAfterMilliseconds);
+    return targetDate;
+  }
+
+  isCurrentDay(date: Date): boolean {
+    const current = new Date();
+
+    if(
+      current.getDate() !== date.getDate() ||
+      current.getMonth() !== date.getMonth() ||
+      current.getFullYear() !== date.getFullYear()
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+
   }
 
 }
