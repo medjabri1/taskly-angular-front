@@ -15,17 +15,29 @@
         padding: 20px;
 
         .calendar__control {
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
 
             span {
-                margin: 10px;
-                padding: 8px 20px;
-                background-color: #00000033;
+                margin: 0px 5px;
+                padding: 10px;
+                border-radius: 50%;
+                background-color: #00000055;
+                opacity: .8;
                 text-transform: uppercase;
                 cursor: pointer;
                 user-select: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .icon {
+                    &.left {
+                        transform: rotate(180deg);
+                    }
+                }
             }
         }
         
@@ -65,6 +77,10 @@
                     &.current.table__head__element {
                         color: $color-blue-1;
                     }
+
+                    &.test {
+                        background-color: $color-gray-1;
+                    }
                 }
 
                 .table__head__element {
@@ -102,12 +118,36 @@
                 
                 .table__body__element {
 
+                    &.hide {
+                        display: none;
+                    }
+
+
                     &:nth-of-type(1) {
                         border-left: none;
                     }
 
                     &:nth-of-type(n-1) {
                         border-right: none;
+                    }
+
+                    .content {
+                        // height: 100%;
+                        // width: 100%;
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-weight: 600;
+                            letter-spacing: 0.02rem;
+                            font-size: .9rem;
+                            color: $color-light;
+                            padding: 12px 20px;
+                            border-radius: 50px;
+                        }
                     }
                 }
             }
