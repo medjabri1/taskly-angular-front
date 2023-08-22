@@ -28,6 +28,58 @@ export class CalendarComponent {
     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
   ];
 
+  colors = [
+      "#FF0000",  
+      "#00FF00",  
+      "#0000FF",  
+      "#FF00FF",  
+      "#800000",  
+      "#008000",
+      "#808000",  
+      "#800080",  
+      "#008080",  
+      "#FFA500",  
+  ]
+
+  tasks = [
+    {
+      day: 20,
+      length: 2,
+      team: 'UI / UX Design',
+      title: 'Design New System'
+    },
+    {
+      day: 23,
+      length: 2,
+      team: 'UI / UX Design',
+      title: 'Dislay other tasks'
+    },
+    {
+      day: 23,
+      length: 3,
+      team: 'Visa',
+      title: 'Design New System'
+    },
+    {
+      day: 21,
+      length: 2,
+      team: 'Marketplace',
+      title: 'Add new product'
+    },
+    {
+      day: 25,
+      length: 2,
+      team: 'Design team',
+      title: 'Remodel the UI'
+    },
+    {
+      day: 23,
+      length: 3,
+      team: 'Marketplace',
+      title: 'Hide redundant product'
+    },
+  ]
+
 
   dates: Array<Date> = [];
 
@@ -80,4 +132,49 @@ export class CalendarComponent {
 
   }
 
+  dayHasTask(date: Date, team: String) {
+
+    let result = 1;
+
+    this.tasks.map((task) => {
+      if(task.day === date.getDate() && task.team === team) {
+        result = task.length;
+      }
+    })
+
+    return result;
+
+  }
+
+  getTaskTitle(date: Date, team: String) {
+    let result = '';
+
+    this.tasks.map((task) => {
+      if(task.day === date.getDate() && task.team === team) {
+        result = task.title;
+      }
+    })
+
+    return result;
+  }
+
+  hideCell(date: Date, team: String) {
+    let result = false;
+
+    let day = date.getDate();
+
+    this.tasks.map((task) => {
+      if((day > task.day && day < task.day + task.length) && team === task.team) {
+        result = true;
+      }
+    })
+
+    return result;
+  }
+
+  getRandomColor() {
+    let randomInt = Math.random() * this.colors.length;
+    return this.colors[Math.round(randomInt)];
+  }
+ 
 }
